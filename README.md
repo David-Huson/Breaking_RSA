@@ -1,2 +1,3 @@
-# Breaking_RSA
-This is a project from COT3100 where we learned how to use modular arithmetic to break a relatively small RSA key.
+# Breaking RSA Homework
+## To run
+Simply run `make main` and input them yourself after running the `./main` executable that is compiled. Take a look at the make file and yoiu'll the premaid tests which contain the inputs provided by the professor.

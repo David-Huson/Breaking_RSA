@@ -1,8 +1,5 @@
 #include "utils.hpp"
 #include <iostream>
-#include <cmath>
-#include <cassert>
-#include <climits>
 
 using namespace std;
 
@@ -13,6 +10,7 @@ int main() {
   long c;
   int e;
 
+  // get the private key pair (n, e) from the user and the cypher text c
   cout << "Enter n: ";
   cin >> n;
   cout << endl;
@@ -23,17 +21,19 @@ int main() {
   cin >> c;
   cout << endl;
   
-
+  // factor n into its prime factors n = p * q
   long int p = utils.primeFactor(n);
   int q = n / p;
   
-  cout << "factored: " << n << " = " << p << " * " << q << endl;
-
   // calculate the totient phi
   long int phi = (p-1) * (q-1);
-  cout << "Totient: " << phi << endl;
+
+  // calculate the private key d
   long int d = utils.modularInverse(e, phi);
-  cout << "Private key \'d\': " << d << endl;
+
+  cout << "The private key, d: " << d << endl;
+  // now lets break this thing
+  // feed the cypher text, private key, and public key n into the fastExpMod function do decrypt
   cout << utils.fastExpMod(c,d,n) << endl;
   return EXIT_SUCCESS;
 }

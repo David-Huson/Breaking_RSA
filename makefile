@@ -1,11 +1,9 @@
 SHELL=/bin/bash
 CXX=g++
-CXXFLAGS=-std=c++11 -Wall -Wextra -g
+CXXFLAGS=-std=c++11 -g
 RM=rm -rf
 
 .PHONY: clean
-
-# ONLY MODIFY AT TODOS
 
 # Target rules
 main: main.o utils.o 
@@ -18,9 +16,12 @@ main.o: main.cpp utils.hpp
 utils.o: utils.cpp utils.hpp
 	$(CXX) $(CXXFLAGS) -c $<
 
-large_numbers_test: main
+# a test with the original assignment nu
+big_mod_test: main
 	echo -e "79437491597\n65537\n70502051373\n" | ./main
 
+test: main
+	echo -e "620585113\n65537\n604230712\n" | ./main
 
 clean:
 	$(RM) *.o main test *.gc* *.dSYM

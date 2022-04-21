@@ -18,11 +18,9 @@ class Utilities {
   public:
   Utilities();
   std::vector<int> primes;
-  const std::vector<int> & getPrimes() const;
   int primeFactor(long int n);
   long modularInverse(int e, long phi);
   int fastExpMod(ll x, long y, ll m);
-  int recMod(ll a, ll b, ll m);
   ll modularMultiply(ll a, ll b, ll mod);
 
 };
